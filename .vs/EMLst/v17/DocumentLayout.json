@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\EMLst\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\emlst.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\emlst.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\logfilemonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\logfilemonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\emlst.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\emlst.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\messagechecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\messagechecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|e:\\emlst\\emlst\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|EmLst\\EmLst.csproj|solutionrelative:emlst\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MessageChecker.cs",
+              "DocumentMoniker": "E:\\EMLst\\EMLst\\MessageChecker.cs",
+              "RelativeDocumentMoniker": "EMLst\\MessageChecker.cs",
+              "ToolTip": "E:\\EMLst\\EMLst\\MessageChecker.cs",
+              "RelativeToolTip": "EMLst\\MessageChecker.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAuwE8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T15:03:00.172Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmLst",
+              "DocumentMoniker": "E:\\EMLst\\EmLst\\EmLst.csproj",
+              "RelativeDocumentMoniker": "EmLst\\EmLst.csproj",
+              "ToolTip": "E:\\EMLst\\EmLst\\EmLst.csproj",
+              "RelativeToolTip": "EmLst\\EmLst.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-12T15:31:32.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "E:\\EMLst\\EMLst\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "EMLst\\MainWindow.xaml",
+              "ToolTip": "E:\\EMLst\\EMLst\\MainWindow.xaml",
+              "RelativeToolTip": "EMLst\\MainWindow.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-12T15:11:46.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "app.manifest",
+              "DocumentMoniker": "E:\\EMLst\\EMLst\\app.manifest",
+              "RelativeDocumentMoniker": "EMLst\\app.manifest",
+              "ToolTip": "E:\\EMLst\\EMLst\\app.manifest",
+              "RelativeToolTip": "EMLst\\app.manifest",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2025-08-12T15:10:33.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmLst",
+              "DocumentMoniker": "E:\\EMLst\\EmLst\\EmLst.csproj",
+              "RelativeDocumentMoniker": "EmLst\\EmLst.csproj",
+              "ToolTip": "E:\\EMLst\\EmLst\\EmLst.csproj",
+              "RelativeToolTip": "EmLst\\EmLst.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-12T14:52:17.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "E:\\EMLst\\EMLst\\App.xaml.cs",
+              "RelativeDocumentMoniker": "EMLst\\App.xaml.cs",
+              "ToolTip": "E:\\EMLst\\EMLst\\App.xaml.cs",
+              "RelativeToolTip": "EMLst\\App.xaml.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T11:20:42.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "E:\\EMLst\\EMLst\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "EMLst\\MainWindow.xaml.cs",
+              "ToolTip": "E:\\EMLst\\EMLst\\MainWindow.xaml.cs",
+              "RelativeToolTip": "EMLst\\MainWindow.xaml.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAkwBUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T15:22:04.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LogFileMonitor.cs",
+              "DocumentMoniker": "E:\\EMLst\\EMLst\\LogFileMonitor.cs",
+              "RelativeDocumentMoniker": "EMLst\\LogFileMonitor.cs",
+              "ToolTip": "E:\\EMLst\\EMLst\\LogFileMonitor.cs",
+              "RelativeToolTip": "EMLst\\LogFileMonitor.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAD4v44AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T15:02:55.349Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

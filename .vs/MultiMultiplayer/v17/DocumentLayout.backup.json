@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\MultiMultiplayer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|e:\\multimultiplayer\\multimultiplayer\\multimultiplayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|solutionrelative:multimultiplayer\\multimultiplayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|e:\\multimultiplayer\\multimultiplayer\\properties\\publishprofiles\\win-x64.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|solutionrelative:multimultiplayer\\properties\\publishprofiles\\win-x64.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|e:\\multimultiplayer\\multimultiplayer\\logfilemonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|solutionrelative:multimultiplayer\\logfilemonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|e:\\multimultiplayer\\multimultiplayer\\package.appxmanifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|solutionrelative:multimultiplayer\\package.appxmanifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|e:\\multimultiplayer\\multimultiplayer\\messagechecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|solutionrelative:multimultiplayer\\messagechecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|e:\\multimultiplayer\\multimultiplayer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|solutionrelative:multimultiplayer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|e:\\multimultiplayer\\multimultiplayer\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6BD690-98B7-4A27-85E0-EF51AB06AF84}|MultiMultiplayer\\MultiMultiplayer.csproj|solutionrelative:multimultiplayer\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LogFileMonitor.cs",
+              "DocumentMoniker": "E:\\MultiMultiplayer\\MultiMultiplayer\\LogFileMonitor.cs",
+              "RelativeDocumentMoniker": "MultiMultiplayer\\LogFileMonitor.cs",
+              "ToolTip": "E:\\MultiMultiplayer\\MultiMultiplayer\\LogFileMonitor.cs",
+              "RelativeToolTip": "MultiMultiplayer\\LogFileMonitor.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T05:56:52.088Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MultiMultiplayer",
+              "DocumentMoniker": "E:\\MultiMultiplayer\\MultiMultiplayer\\MultiMultiplayer.csproj",
+              "RelativeDocumentMoniker": "MultiMultiplayer\\MultiMultiplayer.csproj",
+              "ToolTip": "E:\\MultiMultiplayer\\MultiMultiplayer\\MultiMultiplayer.csproj",
+              "RelativeToolTip": "MultiMultiplayer\\MultiMultiplayer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-28T15:10:34.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "win-x64.pubxml",
+              "DocumentMoniker": "E:\\MultiMultiplayer\\MultiMultiplayer\\Properties\\PublishProfiles\\win-x64.pubxml",
+              "RelativeDocumentMoniker": "MultiMultiplayer\\Properties\\PublishProfiles\\win-x64.pubxml",
+              "ToolTip": "E:\\MultiMultiplayer\\MultiMultiplayer\\Properties\\PublishProfiles\\win-x64.pubxml",
+              "RelativeToolTip": "MultiMultiplayer\\Properties\\PublishProfiles\\win-x64.pubxml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-08-28T15:08:27.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Package.appxmanifest",
+              "DocumentMoniker": "E:\\MultiMultiplayer\\MultiMultiplayer\\Package.appxmanifest",
+              "RelativeDocumentMoniker": "MultiMultiplayer\\Package.appxmanifest",
+              "ToolTip": "E:\\MultiMultiplayer\\MultiMultiplayer\\Package.appxmanifest",
+              "RelativeToolTip": "MultiMultiplayer\\Package.appxmanifest",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001793|",
+              "WhenOpened": "2024-08-28T14:10:05.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "E:\\MultiMultiplayer\\MultiMultiplayer\\App.xaml.cs",
+              "RelativeDocumentMoniker": "MultiMultiplayer\\App.xaml.cs",
+              "ToolTip": "E:\\MultiMultiplayer\\MultiMultiplayer\\App.xaml.cs",
+              "RelativeToolTip": "MultiMultiplayer\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T13:50:06.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "E:\\MultiMultiplayer\\MultiMultiplayer\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MultiMultiplayer\\MainWindow.xaml.cs",
+              "ToolTip": "E:\\MultiMultiplayer\\MultiMultiplayer\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MultiMultiplayer\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T13:34:45.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MessageChecker.cs",
+              "DocumentMoniker": "E:\\MultiMultiplayer\\MultiMultiplayer\\MessageChecker.cs",
+              "RelativeDocumentMoniker": "MultiMultiplayer\\MessageChecker.cs",
+              "ToolTip": "E:\\MultiMultiplayer\\MultiMultiplayer\\MessageChecker.cs",
+              "RelativeToolTip": "MultiMultiplayer\\MessageChecker.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwGEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T07:44:45.595Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

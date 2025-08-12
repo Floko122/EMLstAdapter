@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MultiMultiplayer (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MultiMultiplayer (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
