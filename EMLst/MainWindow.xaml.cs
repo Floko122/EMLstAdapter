@@ -236,7 +236,7 @@ namespace EMLst
                 var file = await picker.PickSingleFileAsync();
                 if (file != null)
                 {
-                    FilePathTextBlock.Text = file.Path;
+                    FileConfigTextBlock.Text = file.Path;
                     SaveConfigPath(file.Path);
                 }
                 loadConfig();
