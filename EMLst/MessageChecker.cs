@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -107,22 +108,30 @@ namespace EMLst
             }
         }
 
-        public static async Task WriteMessagesToFileAsync(List<string> messages,string basepath,string filePath)
+        public static async Task WriteMessagesToFileAsync(List<string> messages, string basepath, string filePath)
         {
+            var path = Path.Combine(basepath, filePath);
             bool written = false;
 
             while (!written)
             {
                 try
                 {
-                    using (StreamWriter writer = new StreamWriter(basepath+"\\"+filePath, append: true))
+                    // Ensure we don't start appending with two empty lines at the end already.
+                    TrimOneTrailingNewLineIfDouble(path);
+
+                    using (var writer = new StreamWriter(path, append: true, encoding: new UTF8Encoding(encoderShouldEmitUTF8Identifier: false)))//
                     {
                         foreach (var message in messages)
                         {
                             await writer.WriteLineAsync(message);
                         }
+
+                        // Leave exactly one *blank* line at EOF.
+                        await writer.WriteLineAsync("+");// equivalent to WriteLineAsync("")
                     }
-                    written = true; // Successfully written to the file
+
+                    written = true;
                 }
                 catch (IOException)
                 {
@@ -130,6 +139,53 @@ namespace EMLst
                     await Task.Delay(100);
                 }
             }
+        }
+
+        /// <summary>
+        /// If the file currently ends with two newline sequences in a row (i.e., a blank last line),
+        /// trim one newline sequence so we start appending cleanly. Uses Environment.NewLine.
+        /// </summary>
+        private static void TrimOneTrailingNewLineIfDouble(string path)
+        {
+            if (!File.Exists(path))
+                return;
+
+            var nl = Encoding.UTF8.GetBytes(Environment.NewLine);
+            var plus = Encoding.UTF8.GetBytes("+");
+            var need = nl.Length * 2+plus.Length;
+
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
+            {
+                if (fs.Length < need)
+                    return;
+
+                // Read the last 2 newline sequences' worth of bytes.
+                fs.Seek(-need, SeekOrigin.End);
+                var tail = new byte[need];
+                var read = fs.Read(tail, 0, tail.Length);
+                if (read != tail.Length)
+                    return;
+
+                bool endsWithDouble =
+                    StartsWithSlice(tail, 0, nl) &&
+                    StartsWithSlice(tail, nl.Length, plus) &&
+                    StartsWithSlice(tail, nl.Length+plus.Length, nl);
+                Console.WriteLine($"Rewriting!: {endsWithDouble}");
+
+                if (endsWithDouble)
+                {
+                    // Trim exactly one newline sequence (so EOF ends with a single newline).
+                    fs.SetLength(fs.Length - nl.Length-plus.Length);
+                }
+            }
+        }
+
+        private static bool StartsWithSlice(byte[] buffer, int offset, byte[] slice)
+        {
+            if (offset + slice.Length > buffer.Length) return false;
+            for (int i = 0; i < slice.Length; i++)
+                if (buffer[offset + i] != slice[i]) return false;
+            return true;
         }
     }
 }
