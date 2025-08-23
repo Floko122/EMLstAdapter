@@ -44,8 +44,18 @@ namespace EMLst
                 loadConfig();
             }
         }
-        private void StartMonitoring()
+        private async void StartMonitoring()
         {
+            //send initial commit:
+            if (config.ContainsKey("initial_data"))
+            {
+                Dictionary<string, object> initial_data = ((JsonElement)config["initial_data"]).Deserialize<Dictionary<string, object>>();
+                initial_data["session_token"] = token;
+                initial_data["mod_id"] = config["mod_id"];
+
+                System.Diagnostics.Debug.WriteLine(string.Join(Environment.NewLine, initial_data));
+                await RequestAsync(baseurl + "?action=sync", initial_data, "POST"); // Example placeholder
+            }
             StartLogFileMonitoring();
             StartRequestMonitoring();
             started = true;

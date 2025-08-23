@@ -73,7 +73,7 @@ namespace EMLst
                                 }
                                 System.Diagnostics.Debug.WriteLine(command["payload"].ToString());
                                 Dictionary<string, object> target = ((JsonElement)payload["target"]).Deserialize<Dictionary<string, object>>();
-                                string message = $"203|{payload["game_vehicle_id"]}|{payload["event_game_id"]}|{target["x"]}|{target["y"]}|{player_id}||";
+                                string message = $"203|{payload["game_vehicle_id"]}|{payload["event_game_id"]}|{target["x"]}|{target["y"]}|{player_id}|{payload["mode"]}|";
                                 messages.Add(message);
                                 acknowledge.Add(command["id"].ToString());
                             }else if (command["type"].ToString().Equals("unassign"))
