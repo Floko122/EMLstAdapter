@@ -35,7 +35,7 @@ namespace EMLst
         {
             // Initialize the cancellation token source
             cancellationTokenSource = new CancellationTokenSource();
-            //System.IO.File.WriteAllText(basepath + "\\" + logFilePath, string.Empty);
+            System.IO.File.WriteAllText(basepath + "\\" + logFilePath, string.Empty);
 
             // Run the monitoring task on a separate thread
             Task.Run(() => MonitorLogFile(cancellationTokenSource.Token), cancellationTokenSource.Token);
