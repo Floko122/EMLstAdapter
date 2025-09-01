@@ -11,6 +11,8 @@ using Windows.Storage.Pickers;
 using Microsoft.Win32;
 using System.IO;
 using System.Text;
+using Microsoft.UI.Xaml.Shapes;
+using System.Threading;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -53,7 +55,7 @@ namespace EMLst
                 initial_data["session_token"] = token;
                 initial_data["mod_id"] = config["mod_id"];
 
-                System.Diagnostics.Debug.WriteLine(string.Join(Environment.NewLine, initial_data));
+                //System.Diagnostics.Debug.WriteLine(string.Join(Environment.NewLine, initial_data));
                 await RequestAsync(baseurl + "?action=sync", initial_data, "POST"); // Example placeholder
             }
             StartLogFileMonitoring();
@@ -98,12 +100,14 @@ namespace EMLst
                 // Handle JSON parsing errors
                 Console.WriteLine($"JSON parsing error: {e.Message}");
                 System.Diagnostics.Debug.WriteLine($"JSON parsing error: {e.Message}");
+                App.log($"JSON parsing error: {e.Message}");
             }
             catch (IOException e)
             {
                 // Handle JSON parsing errors
                 Console.WriteLine($"IO parsing error: {e.Message}");
                 System.Diagnostics.Debug.WriteLine($"IO error: {e.Message}");
+                App.log($"IO parsing error: {e.Message}");
             }
         }
         private Size MeasureContentSize(FrameworkElement element)
@@ -130,6 +134,11 @@ namespace EMLst
                     TokenTextBox.IsReadOnly = true;
                     token = dictionary["session_token"].ToString();
                     StartMonitoring();
+                }
+                else
+                {
+                    SaveTokenButton.Foreground = new SolidColorBrush(Colors.Red);
+                    TokenTextBox.Text = $"Error occured. Check error.log for more information";
                 }
             }
         }
@@ -176,14 +185,16 @@ namespace EMLst
                 // Handle any errors that occur during the request
                 Console.WriteLine($"Request error: {e.Message}");
                 System.Diagnostics.Debug.WriteLine($"Request error: {e.Message}, {url}");
-                return null;
+                App.log($"Request error: {e.Message}, {url}");
+                return new Dictionary<string, object>();
             }
             catch (JsonException e)
             {
                 // Handle JSON parsing errors
                 Console.WriteLine($"JSON parsing error: {e.Message}");
                 System.Diagnostics.Debug.WriteLine($"JSON parsing error: {e.Message}, {debug_response}");
-                return null;
+                App.log($"JSON parsing error: {e.Message}, {debug_response}");
+                return new Dictionary<string, object>();
             }
         }
 
@@ -294,6 +305,5 @@ namespace EMLst
                 this.config_path = configPreference;
             }
         }
-
     }
 }

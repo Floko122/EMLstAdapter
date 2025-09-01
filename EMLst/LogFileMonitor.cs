@@ -7,6 +7,7 @@ using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,6 +24,7 @@ namespace EMLst
         private List<Dictionary<string, object>> vehicles= new List<Dictionary<string, object>>();
         private List<Dictionary<string, object>> hospitals = new List<Dictionary<string, object>>();
         private List<Dictionary<string, object>> events = new List<Dictionary<string,object>>();
+        private Dictionary<string, object> time = new Dictionary<string, object>();
         private Dictionary<string, string> players = new Dictionary<string, string>();
 
         public string token { get; set; }
@@ -33,7 +35,7 @@ namespace EMLst
         {
             // Initialize the cancellation token source
             cancellationTokenSource = new CancellationTokenSource();
-            System.IO.File.WriteAllText(basepath + "\\" + logFilePath, string.Empty);
+            //System.IO.File.WriteAllText(basepath + "\\" + logFilePath, string.Empty);
 
             // Run the monitoring task on a separate thread
             Task.Run(() => MonitorLogFile(cancellationTokenSource.Token), cancellationTokenSource.Token);
@@ -84,6 +86,7 @@ namespace EMLst
                 {
                     // Handle exceptions, such as file access issues
                     Console.WriteLine($"An error occurred: {ex.Message}");
+                    App.log($"LogMonitor: An error occurred: {ex.Message}");
                 }
                 await trySendToServer();//We need to wait for it to avoid new entries being deleted after sending
                 // Wait for a short time before checking again
@@ -97,9 +100,11 @@ namespace EMLst
             string message = line.Substring(player_marker.Length);
             string[] playerstr = message.Split(",");
             Dictionary<string,string> playerDict = new Dictionary<string,string>();
+            Regex rgx = new Regex("[^a-zA-Z]");
             for (int i = 0; i < playerstr.Length; i++)
             {
-                playerDict[i.ToString()] = playerstr[i].Trim();
+                String replaced = rgx.Replace(playerstr[i].Trim(), "");
+                playerDict[i.ToString()] = replaced;
             }
             players = playerDict;
         }
@@ -144,6 +149,12 @@ namespace EMLst
                         MessageChecker.WriteMessagesToFileAsync(["42|" + message.Substring(1)], basepath, MessageChecker.filePath);
                         break;
                     }
+                case 't':
+                    {
+                        if (data != null)
+                            time = data;
+                        break;
+                    }
             }
         }
         private async Task trySendToServer()
@@ -173,6 +184,11 @@ namespace EMLst
                         data["players"] = players;
                     }
 
+                    if (time.Count > 0)
+                    {
+                        data["time"] = time;
+                    }
+
                     // Deserialize the JSON response to a general object (Dictionary/List)
                     //System.Diagnostics.Debug.WriteLine($"Presending json: {data}");
                     object jsonResponse = await MainWindow.RequestAsync(baseurl+"?action=sync", data, "POST");
@@ -185,18 +201,21 @@ namespace EMLst
                         hospitals.Clear();
                         vehicles.Clear();//Only delete if was sent
                         players.Clear();
+                        time.Clear();
                     }
                 }
                 catch (HttpRequestException e)
                 {
                     System.Diagnostics.Debug.WriteLine($"Request error: {e.Message}");
                     Console.WriteLine($"Request error: {e.Message}");
+                    App.log($"Request error: {e.Message} {baseurl + "?action=sync"}");
                 }
                 catch (JsonException e)
                 {
                     // Handle JSON parsing errors
                     Console.WriteLine($"JSON parsing error: {e.Message}");
                     System.Diagnostics.Debug.WriteLine($"JSON parsing error: {e.Message}");
+                    App.log($"JSON parsing error: {e.Message}");
                 }
             }
             else

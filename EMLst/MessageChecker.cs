@@ -71,9 +71,10 @@ namespace EMLst
                                     player_id = payload["assign_to_player_id"].ToString();
                                     //Create Message
                                 }
+                                string mode = payload.ContainsKey("mode")?payload["mode"].ToString():"";
                                 System.Diagnostics.Debug.WriteLine(command["payload"].ToString());
                                 Dictionary<string, object> target = ((JsonElement)payload["target"]).Deserialize<Dictionary<string, object>>();
-                                string message = $"203|{payload["game_vehicle_id"]}|{payload["event_game_id"]}|{target["x"]}|{target["y"]}|{player_id}|{payload["mode"]}|";
+                                string message = $"203|{payload["game_vehicle_id"]}|{payload["event_game_id"]}|{target["x"]}|{target["y"]}|{player_id}|{mode}|";
                                 messages.Add(message);
                                 acknowledge.Add(command["id"].ToString());
                             }else if (command["type"].ToString().Equals("unassign"))
@@ -98,16 +99,19 @@ namespace EMLst
                 catch (HttpRequestException e)
                 {
                     Console.WriteLine($"Request error: {e.Message}");
+                    App.log($"Message Checker: A request error occurred: {e.Message}");
                     // Handle request errors, possibly retry after a delay
                 }
                 catch (JsonException e)
                 {
                     Console.WriteLine($"JSON parsing error: {e.Message}");
+                    App.log($"Message Checker: JSON parsing error: {e.Message}");
                     // Handle JSON parsing errors
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine($"Unexpected error: {e.Message}");
+                    App.log($"Message Checker: Unexpected error: {e.Message}");
                 }
 
                 // Wait before retrying, or implement a retry mechanism
