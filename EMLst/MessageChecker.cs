@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace EMLst
 {
@@ -32,6 +33,8 @@ namespace EMLst
             // Initialize the cancellation token source
             cancellationTokenSource = new CancellationTokenSource();
             System.IO.File.WriteAllText(basepath + "\\" + filePath, string.Empty);
+
+            _ = WriteMessagesToFileAsync([], basepath, MessageChecker.filePath);
 
             // Run the monitoring task on a separate thread
             Task.Run(() => CheckMessages(cancellationTokenSource.Token), cancellationTokenSource.Token);
@@ -62,9 +65,12 @@ namespace EMLst
                         {
 
                             Dictionary<string, object> command = ((JsonElement)com).Deserialize<Dictionary<string, object>>();
+                            Dictionary<string, object> payload = JsonSerializer.Deserialize<Dictionary<string, object>>(command["payload"].ToString());
+                            var event_id = payload.ContainsKey("event_game_id")? payload["event_game_id"] :
+                                            (payload.ContainsKey("event_id") ? payload["event_id"] : "");
+                            string message = "";
                             if (command["type"].ToString().Equals("assign"))
                             {
-                                Dictionary<string, object> payload = JsonSerializer.Deserialize<Dictionary<string, object>>(command["payload"].ToString());
                                 string player_id = "-1";
                                 if (payload["assign_to_player_id"]!=null && payload["assign_to_player_id"].ToString().Length > 0)
                                 {
@@ -74,13 +80,30 @@ namespace EMLst
                                 string mode = payload.ContainsKey("mode")?payload["mode"].ToString():"";
                                 System.Diagnostics.Debug.WriteLine(command["payload"].ToString());
                                 Dictionary<string, object> target = ((JsonElement)payload["target"]).Deserialize<Dictionary<string, object>>();
-                                string message = $"203|{payload["game_vehicle_id"]}|{payload["event_game_id"]}|{target["x"]}|{target["y"]}|{player_id}|{mode}|";
-                                messages.Add(message);
-                                acknowledge.Add(command["id"].ToString());
+                                message = $"203|{payload["game_vehicle_id"]}|{event_id}|{target["x"]}|{target["y"]}|{player_id}|{mode}|";
                             }else if (command["type"].ToString().Equals("unassign"))
                             {
-                                Dictionary<string, object> payload = JsonSerializer.Deserialize<Dictionary<string, object>>(command["payload"].ToString());
-                                string message = $"204|{payload["game_vehicle_id"]}|";
+                                message = $"204|{payload["game_vehicle_id"]}|";
+                            }else if (command["type"].ToString().Equals("event_create"))
+                            {
+                                Dictionary<string, object> target = ((JsonElement)payload["target"]).Deserialize<Dictionary<string, object>>();
+                                message = $"110|{payload["event_id"]}|{target["x"]}|{target["y"]}|{payload["name"]}|";
+                            }
+                            else if (command["type"].ToString().Equals("event_delete"))
+                            {
+                                message = $"112|{payload["event_id"]}|{payload["event_game_id"]}|";
+                            }
+                            else if (command["type"].ToString().Equals("message_create"))
+                            {
+                                message = $"311|{event_id}|{payload["short_message"]}|{payload["long_message"]}|";
+                            }
+                            else if (command["type"].ToString().Equals("message_revoke"))
+                            {
+                                message = $"312|{event_id}|{payload["short_message"]}|";
+                            }
+
+                            if (message.Length > 0)
+                            {
                                 messages.Add(message);
                                 acknowledge.Add(command["id"].ToString());
                             }

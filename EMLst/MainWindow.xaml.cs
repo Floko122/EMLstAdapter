@@ -11,8 +11,8 @@ using Windows.Storage.Pickers;
 using Microsoft.Win32;
 using System.IO;
 using System.Text;
-using Microsoft.UI.Xaml.Shapes;
-using System.Threading;
+using System.Diagnostics;
+using Windows.ApplicationModel.DataTransfer;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -143,6 +143,31 @@ namespace EMLst
             }
         }
 
+        private async void LinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            string url = $"{this.baseurl.Replace("backend/api.php", "")}frontend?session_token={TokenTextBox.Text}";
+            _ = await Windows.System.Launcher.LaunchUriAsync(new System.Uri(url));
+
+            DataPackage dataPackage = new();
+            dataPackage.RequestedOperation = DataPackageOperation.Copy;
+            dataPackage.SetText(url);
+            Clipboard.SetContent(dataPackage);
+            System.Diagnostics.Debug.WriteLine($"Clicked: {sender}  {e}");
+        }
+        private async void RunButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (started && config!=null)
+            {
+                Process process = new Process();
+                // Configure the process using the StartInfo properties.
+                process.StartInfo.FileName = $"\"{this.basepath}\\Em4.exe\"";
+                process.StartInfo.Arguments = $"-game -mod {config["mod_id"]}";
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                process.Start();
+                //process.WaitForExit();
+            }
+        }
+
 
         public static async Task<object> RequestAsync(string url, object data, string mode)
         {
@@ -235,7 +260,7 @@ namespace EMLst
                 var file = await picker.PickSingleFolderAsync();
                 if (file != null)
                 {
-                    FilePathTextBlock.Text = file.Path;
+                    FilePathTextBlock.Text = displayPath(file.Path);
                     SaveFolderPath(file.Path);
                 }
 
@@ -257,7 +282,7 @@ namespace EMLst
                 var file = await picker.PickSingleFileAsync();
                 if (file != null)
                 {
-                    FileConfigTextBlock.Text = file.Path;
+                    FileConfigTextBlock.Text = displayPath(file.Path);
                     SaveConfigPath(file.Path);
                 }
                 loadConfig();
@@ -292,7 +317,7 @@ namespace EMLst
 
             if (!string.IsNullOrEmpty(myPreference))
             {
-                FilePathTextBlock.Text = myPreference;
+                FilePathTextBlock.Text = displayPath(myPreference);
                 this.basepath = myPreference;
             }
 
@@ -301,9 +326,18 @@ namespace EMLst
 
             if (!string.IsNullOrEmpty(configPreference))
             {
-                FileConfigTextBlock.Text = configPreference;
+                FileConfigTextBlock.Text = displayPath(configPreference);
                 this.config_path = configPreference;
             }
+        }
+
+        private string displayPath(string path, int length = 20)
+        {
+            if (length <= 5 || path.Length <= length)
+            {
+                return path;
+            }
+            return path.Substring(0, 5) + "..." + path.Substring(path.Length - (length-5), length-5);
         }
     }
 }

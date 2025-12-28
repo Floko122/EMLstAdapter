@@ -24,6 +24,7 @@ namespace EMLst
         private List<Dictionary<string, object>> vehicles= new List<Dictionary<string, object>>();
         private List<Dictionary<string, object>> hospitals = new List<Dictionary<string, object>>();
         private List<Dictionary<string, object>> events = new List<Dictionary<string,object>>();
+        private List<Dictionary<string, object>> messages = new List<Dictionary<string, object>>();
         private Dictionary<string, object> time = new Dictionary<string, object>();
         private Dictionary<string, string> players = new Dictionary<string, string>();
 
@@ -142,10 +143,16 @@ namespace EMLst
                             hospitals.Add(data);
                         break;
                     }
+                case 'm':
+                    {
+                        if (data != null)
+                            messages.Add(data);
+                        break;
+                    }
                 case 'i':
                     {
-                        //TODO send code back
-                        //Anlyse players
+                        //Analyse players
+                        System.IO.File.WriteAllText(basepath + "\\" + MessageChecker.filePath, string.Empty);
                         MessageChecker.WriteMessagesToFileAsync(["42|" + message.Substring(1)], basepath, MessageChecker.filePath);
                         break;
                     }
@@ -159,7 +166,7 @@ namespace EMLst
         }
         private async Task trySendToServer()
         {
-            if ((hospitals.Count>0 || events.Count>0 || vehicles.Count>0) && token.Length > 0)
+            if ((hospitals.Count>0 || events.Count>0 || vehicles.Count>0 || messages.Count>0) && token.Length > 0)
             {
                 try
                 {
@@ -184,6 +191,11 @@ namespace EMLst
                         data["players"] = players;
                     }
 
+                    if (messages != null && messages.Count > 0)
+                    {
+                        data["messages"] = messages;
+                    }
+
                     if (time.Count > 0)
                     {
                         data["time"] = time;
@@ -201,7 +213,12 @@ namespace EMLst
                         hospitals.Clear();
                         vehicles.Clear();//Only delete if was sent
                         players.Clear();
+                        messages.Clear();
                         time.Clear();
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Sending failed {jsonResponse}");
                     }
                 }
                 catch (HttpRequestException e)
