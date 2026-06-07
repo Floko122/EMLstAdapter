@@ -72,7 +72,7 @@ namespace EMLst
                             Dictionary<string, object> command = ((JsonElement)com).Deserialize<Dictionary<string, object>>();
                             Dictionary<string, object> payload = JsonSerializer.Deserialize<Dictionary<string, object>>(command["payload"].ToString());
                             var event_id = payload.ContainsKey("event_game_id")? payload["event_game_id"] :
-                                            (payload.ContainsKey("event_id") ? payload["event_id"] : "");
+                                            (payload.ContainsKey("event_id") ? payload["event_id"] : "-1");
                             string message = "";
                             if (command["type"].ToString().Equals("assign"))
                             {
@@ -82,7 +82,7 @@ namespace EMLst
                                     player_id = payload["assign_to_player_id"].ToString();
                                     //Create Message
                                 }
-                                string mode = payload.ContainsKey("mode")?payload["mode"].ToString():"";
+                                string mode = payload.ContainsKey("mode")?payload["mode"].ToString():"-1";
                                 System.Diagnostics.Debug.WriteLine(command["payload"].ToString());
                                 Dictionary<string, object> target = ((JsonElement)payload["target"]).Deserialize<Dictionary<string, object>>();
                                 message = $"203|{payload["game_vehicle_id"]}|{event_id}|{target["x"]}|{target["y"]}|{player_id}|{mode}|";
