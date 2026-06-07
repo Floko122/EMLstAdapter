@@ -292,6 +292,8 @@ namespace EMLst
         private void ClosedWindow(object sender,WindowEventArgs e)
         {
             logFileMonitor?.StopMonitoring();
+            messageChecker?.StopMonitoring();
+            messageChecker?.clearSyncFile();
         }
 
 

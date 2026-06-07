@@ -6,7 +6,6 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace EMLst
 {
@@ -32,12 +31,18 @@ namespace EMLst
         {
             // Initialize the cancellation token source
             cancellationTokenSource = new CancellationTokenSource();
+
+            clearSyncFile();
+            // Run the monitoring task on a separate thread
+            Task.Run(() => CheckMessages(cancellationTokenSource.Token), cancellationTokenSource.Token);
+        }
+
+        public void clearSyncFile()
+        {
             System.IO.File.WriteAllText(basepath + "\\" + filePath, string.Empty);
 
             _ = WriteMessagesToFileAsync([], basepath, MessageChecker.filePath);
 
-            // Run the monitoring task on a separate thread
-            Task.Run(() => CheckMessages(cancellationTokenSource.Token), cancellationTokenSource.Token);
         }
 
         public void StopMonitoring()
