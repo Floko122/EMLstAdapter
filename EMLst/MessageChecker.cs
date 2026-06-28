@@ -71,8 +71,8 @@ namespace EMLst
 
                             Dictionary<string, object> command = ((JsonElement)com).Deserialize<Dictionary<string, object>>();
                             Dictionary<string, object> payload = JsonSerializer.Deserialize<Dictionary<string, object>>(command["payload"].ToString());
-                            var event_id = payload.ContainsKey("event_game_id")? payload["event_game_id"] :
-                                            (payload.ContainsKey("event_id") ? payload["event_id"] : "-1");
+                            var event_id = payload.ContainsKey("event_game_id") && payload["event_game_id"]!=null ? payload["event_game_id"] :
+                                            (payload.ContainsKey("event_id") && payload["event_id"] != null ? payload["event_id"] : "-1");
                             string message = "";
                             if (command["type"].ToString().Equals("assign"))
                             {

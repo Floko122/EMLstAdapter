@@ -13,6 +13,8 @@ using System.IO;
 using System.Text;
 using System.Diagnostics;
 using Windows.ApplicationModel.DataTransfer;
+using System.Text.Json.Nodes;
+using System.Xml.Linq;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -126,10 +128,16 @@ namespace EMLst
         {
             if (!started && config!=null)
             {
-                object response = await RequestAsync(baseurl + "?action=session_create", config["request_data"],"POST"); // Example placeholder
+                JsonObject first_data = JsonNode.Parse(((JsonElement)config["request_data"]).GetRawText())!.AsObject();
+                string pin = PinTextBox.Text;
+                if(pin!= null && pin.Length > 0)
+                {
+                    first_data["pin"] = pin;
+                }
+                object response = await RequestAsync(baseurl + "?action=session_create", first_data, "POST"); // Example placeholder
                 if (response is Dictionary<string, object> dictionary && dictionary.ContainsKey("session_token"))
                 {
-                    SaveTokenButton.Foreground = new SolidColorBrush(Colors.Green);
+                    //SaveTokenButton.Foreground = new SolidColorBrush(Colors.Green);
                     TokenTextBox.Text = dictionary["session_token"].ToString();
                     TokenTextBox.IsReadOnly = true;
                     token = dictionary["session_token"].ToString();
@@ -137,7 +145,7 @@ namespace EMLst
                 }
                 else
                 {
-                    SaveTokenButton.Foreground = new SolidColorBrush(Colors.Red);
+                    //SaveTokenButton.Foreground = new SolidColorBrush(Colors.Red);
                     TokenTextBox.Text = $"Error occured. Check error.log for more information";
                 }
             }

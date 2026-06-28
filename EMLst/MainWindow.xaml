@@ -25,13 +25,15 @@
         </Grid.ColumnDefinitions>
 
         <!-- TextBox for Token -->
-        <TextBox x:Name="TokenTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Token" Margin="0,0,0,10"/>
+        <TextBox x:Name="PinTextBox" MaxLength="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" PlaceholderText="PIN (optional)" Text="" Margin="0,0,0,10"/>
 
         <!-- Request Token Button -->
-        <Button x:Name="RequestTokenButton" Grid.Row="1" Grid.Column="1" Content="Request Token" Margin="5,0,0,10" Click="RequestTokenButton_Click"/>
+        <Button x:Name="RequestTokenButton" Grid.Row="0" Grid.Column="2" Content="Request Token" Margin="5,0,0,10" Click="RequestTokenButton_Click"/>
 
-        <!-- Save Token Button -->
-        <Button x:Name="SaveTokenButton" Grid.Row="1" Grid.Column="2" Content="Save Token" Margin="5,0,0,10" Click="SaveTokenButton_Click"/>
+        <TextBox x:Name="TokenTextBox" IsReadOnly="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" PlaceholderText="Token" Text="" Margin="0,0,0,10"/>
+
+        <!-- Save Token Button
+        <Button x:Name="SaveTokenButton" Grid.Row="1" Grid.Column="2" Content="Save Token" Margin="5,0,0,10" Click="SaveTokenButton_Click"/> -->
 
         <!-- Display File Path Button -->
         <TextBlock x:Name="FilePathTextBlock" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="No file selected" VerticalAlignment="Center" Margin="0,0,10,10"/>
